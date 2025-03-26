@@ -31,7 +31,7 @@
       <button id="timerBtn" class="nice-button" onclick="startTimer()">
         Set timer 10 sec
       </button>
-      <audio id="gameMusic" hidden>
+      <audio id="gameMusic" muted autoplay>
         <source src="./assets/bell.mp3" type="audio/mpeg" />
       </audio>
     </div>
@@ -41,8 +41,10 @@
       }
       function startTimer() {
         alert("Timer started for 10 seconds!");
+        let audio = document.getElementById("gameMusic");
+
         setTimeout(() => {
-          document.getElementById("gameMusic").play();
+          audio.play();
           alert("Time is up! Playing music.");
         }, 10000);
       }
