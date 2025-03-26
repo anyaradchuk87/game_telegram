@@ -33,34 +33,23 @@
     </div>
     <script>
       const audio = document.getElementById("gameMusic");
-
+      function playSound() {
+        audio.play().catch((err) => console.log("Audio play blocked:", err));
+      }
       document.getElementById("startBtn").addEventListener("click", () => {
         alert("Game started");
-        audio.muted = false;
       });
-      console.log("test");
+
       document.getElementById("timerBtn").addEventListener("click", () => {
         alert("Timer started for 5 seconds!");
         setTimeout(() => {
-          audio.muted = false;
-          audio
-            .play()
-            .catch((error) => console.log("Autoplay blocked:", error));
+          playSound();
           alert("Time is up! Playing music.");
         }, 5000);
       });
-      function startGame() {
-        alert("Game started");
-      }
-      function startTimer() {
-        alert("Timer started for 5 seconds!");
-        let audio = document.getElementById("gameMusic");
-
-        setTimeout(() => {
-          audio.play();
-          alert("Time is up! Playing music.");
-        }, 5000);
-      }
+      document.body.addEventListener("click", () => {
+        audio.play().catch((err) => console.log("Autoplay issue:", err));
+      });
     </script>
   </body>
 </html>
