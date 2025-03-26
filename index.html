@@ -25,17 +25,30 @@
         src="https://frontofficesports.com/wp-content/uploads/2023/01/FOS-23-1.19-Mobile-Games-Revenue.jpg"
         alt="game"
       /><br />
-      <button id="startBtn" class="nice-button" onclick="startGame()">
-        Start
-      </button>
-      <button id="timerBtn" class="nice-button" onclick="startTimer()">
-        Set timer 10 sec
-      </button>
+      <button id="startBtn" class="nice-button">Start</button>
+      <button id="timerBtn" class="nice-button">Set timer 10 sec</button>
       <audio id="gameMusic" muted autoplay>
         <source src="./assets/bell.mp3" type="audio/mpeg" />
       </audio>
     </div>
     <script>
+      const audio = document.getElementById("gameMusic");
+
+      document.getElementById("startBtn").addEventListener("click", () => {
+        alert("Game started");
+        audio.muted = false;
+      });
+
+      document.getElementById("timerBtn").addEventListener("click", () => {
+        alert("Timer started for 10 seconds!");
+        setTimeout(() => {
+          audio.muted = false;
+          audio
+            .play()
+            .catch((error) => console.log("Autoplay blocked:", error));
+          alert("Time is up! Playing music.");
+        }, 10000);
+      });
       function startGame() {
         alert("Game started");
       }
