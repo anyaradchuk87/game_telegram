@@ -26,7 +26,7 @@
         alt="game"
       /><br />
       <button id="startBtn" class="nice-button">Start</button>
-      <button id="timerBtn" class="nice-button">Set timer 10 sec</button>
+      <button id="timerBtn" class="nice-button">Set timer 5 sec</button>
       <audio id="gameMusic">
         <source src="./assets/bell.mp3" type="audio/mpeg" />
       </audio>
@@ -40,26 +40,26 @@
       });
 
       document.getElementById("timerBtn").addEventListener("click", () => {
-        alert("Timer started for 10 seconds!");
+        alert("Timer started for 5 seconds!");
         setTimeout(() => {
           audio.muted = false;
           audio
             .play()
             .catch((error) => console.log("Autoplay blocked:", error));
           alert("Time is up! Playing music.");
-        }, 10000);
+        }, 5000);
       });
       function startGame() {
         alert("Game started");
       }
       function startTimer() {
-        alert("Timer started for 10 seconds!");
+        alert("Timer started for 5 seconds!");
         let audio = document.getElementById("gameMusic");
 
         setTimeout(() => {
           audio.play();
           alert("Time is up! Playing music.");
-        }, 10000);
+        }, 5000);
       }
     </script>
   </body>
